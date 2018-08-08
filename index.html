@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108080537-3"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-108080537-3');
+	</script>
+	
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no">
+	<meta name="robots" content="index,follow">
+	<meta name="googlebot" content="index,follow">
+	<title>Círculo para la foto de perfil</title>
+	<meta name="description" content="Generador de circulo para la foto de perfil, con cualquier combinación de colores">
+	<meta name="keywords" content="avatar,borde,circulo,editor,creador,icon,color,colores">
+	<meta name="author" content="Emiliano Tálamo">
+	<link rel="me" href="mailto:emilianotalamo@gmail.com">
+	<meta name="theme-color" content="#ffffff">
+	<meta name="msapplication-TileColor" content="#ee6e73">
+
+	<!-- favicons -->
+	<link rel="shortcut icon" href="./res/favicon/favicon.png" /> <!-- fallback favicon - 16x16, 32x32, 64x64 -->
+	<!-- modern browser icons -->
+	<link rel="icon" href="./res/favicon/favicon-16.png" sizes="16x16" type="image/png">
+	<link rel="icon" href="./res/favicon/favicon-32.png" sizes="32x32" type="image/png">
+	<link rel="icon" href="./res/favicon/favicon-48.png" sizes="48x48" type="image/png">
+	<link rel="icon" href="./res/favicon/favicon-64.png" sizes="64x64" type="image/png">
+	<!-- Google TV -->
+	<link rel="icon" href="./res/favicon/favicon-96.png" sizes="96x96" type="image/png">
+	<!-- Android Chrome -->
+	<link rel="icon" href="./res/favicon/favicon-196.png" sizes="196x196" type="image/png">
+	<!-- iOS devices -->
+	<link rel="apple-touch-icon" sizes="60x60" href="./res/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="./res/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="./res/favicon/apple-icon-180x180.png">
+
+	<!-- Stylesheets -->
+	<link href="https://fonts.googleapis.com/css?family=Andika|Handlee|Rancho" rel="stylesheet">
+	<link rel="stylesheet" href="./css/style.css">
+
+	<!-- Scripts -->
+	<script src="./scripts/presets.js"></script>
+	<script src="./scripts/script.js" defer></script>
+	<script src="./scripts/canvas.js" defer></script>
+
+</head>
+<body>
+	<div>
+		<header>
+			<h1>Círculo en el avatar generator &hearts;</h1>
+		</header>
+
+		<main>
+			<aside id="settings">
+
+				<div>
+					<h2>Foto</h2>
+					<label for="pic">Seleccionar foto</label>
+					<input type="file" name="pic" id="pic">
+				</div>
+
+				<div>
+					<h2>Cantidad de colores</h2>
+					<div id="colorqtdiv">
+						<button id="colorqtMinus">-</button>
+						<input type="range" id="colorqt" min="1" max="8" value="1">
+						<button id="colorqtPlus">+</button>
+						<span id="colorqtnum"></span>
+					</div>
+				</div>
+
+				<div id="colors">
+					<h2>Colores</h2>
+					<div></div>
+
+				</div>
+
+				<div id="presets">
+					<h2>Preseteados</h2>
+					<select name="" id="presetsInput">
+					</select>
+				</div>
+				
+			</aside>
+			<div>
+				<canvas id="preview" width="400" height="400"></canvas>
+				<div>
+					<a href="#" id="dl">Descargar</a>
+				</div>
+			</div>
+		</main>
+		<a href="http://emilianotalamo.github.io/" target="_blank" id="about">Emit</a>
+	</div>
+</body>
+</html>
