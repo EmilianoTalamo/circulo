@@ -26,14 +26,13 @@ document.getElementById("pic").onchange = function(e) {
 				drawW = 400 * Math.abs(ogwidth / ogheight);
 				drawH = 400;
 				posY = 0;
-				posX = drawW / 6.66 * -1;
+				posX = (400 - drawW) / 2;
 			}
 			// if uploaded pic is tall
 			else if(ogwidth < ogheight) {
 				drawW = 400;
 				drawH = 400 * Math.abs(ogheight / ogwidth);
-				// posY = drawH / 4 * -1;
-				posY = drawH / 4.44 * -1;
+				posY = (400 - drawH) / 2;
 				posX = 0;
 			}
 			// if uploaded pic is 1:1
@@ -44,7 +43,6 @@ document.getElementById("pic").onchange = function(e) {
 				drawW = 400;
 				drawH = 400;
 			}
-
 			ctx.drawImage(img,posX,posY,drawW,drawH);
 		};
     img.src = event.target.result;
