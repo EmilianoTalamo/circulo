@@ -94,6 +94,22 @@ document.querySelector("#presets").addEventListener("change", function() {
 document.getElementById("dl").addEventListener("click", function() {
 	this.href = document.getElementById("preview").toDataURL('image/jpeg'); // Catch canvas content as jpeg
 	this.download = "avatar.jpg"; // File name
+
+	// Trigger share overlay
+	document.getElementById("overlay-bg").style.opacity = 1;
+	document.getElementById("overlay-bg").style.pointerEvents = "all";
+});
+
+// Overlay close button
+document.getElementById("close").addEventListener("click", function() {
+	dismissOverlay();
+});
+
+// Overlay: Close when clicking overlay background
+document.getElementById("overlay-bg").addEventListener("click", function(e) {
+	if(e.target == this) {
+		dismissOverlay();
+	}
 });
 
 
@@ -138,4 +154,11 @@ function generateRandomHex() {
 // This changes the presets dropdown to custom when triggered
 function presetToCustom() {
 	document.querySelector("#presetsInput").selectedIndex = 0;
+}
+
+
+// Dismiss overlay
+function dismissOverlay() {
+	document.getElementById("overlay-bg").style.opacity = 0;
+	document.getElementById("overlay-bg").style.pointerEvents = "none";
 }

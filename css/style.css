@@ -245,7 +245,7 @@ label[for='pic']:hover{
 
 #dl{
 	text-decoration: none;
-	background-color: rgb(255, 118, 118);
+	background-color: #ee6e73;
 	color: white;
 	padding: 6px 16px;
 	border-radius: 4px;
@@ -343,4 +343,107 @@ main > div > div{
 		padding-bottom: 18px;
 		line-height: 1;
 	}
+}
+
+#overlay-bg{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	pointer-events: none;
+	opacity: 0;
+	transition: opacity 400ms ease-out;
+	background-color: rgba(255,255,255,0.4);
+	text-align: center;
+}
+#overlay{
+	background-color: #767AFF;
+	width: 350px;
+	padding: 20px;
+	box-sizing: border-box;
+	position: relative;
+	border-radius: 8px;
+	box-shadow: 2px 4px 10px rgba(0,0,0,0.2);
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+#overlay #close{
+	position: absolute;
+	top: 0px;
+	right: 16px;
+	font-size: 32px;
+	font-weight: 400;
+	color: white;
+	cursor: pointer;
+}
+#overlay h3{
+	color: white;
+	line-height: 1.25;
+	font-size: 20px;
+}
+
+#overlay p{
+	color: white;
+	margin-top: 20px;
+}
+
+#overlay a{
+	background-color: #767AFF;
+	padding: 4px 10px;
+	color: white;
+	font-size: 18px;
+	font-weight: 600;
+	border-radius: 8px;
+	display: inline-block;
+	margin-top: 20px;
+	border: 2px solid white;
+	transition: background-color 200ms ease-out, color 200ms ease-out;
+}
+#overlay a:hover{
+	background-color: white;
+	color: #767AFF;
+	border: 2px solid white;
+	transition: background-color 200ms ease-out, color 200ms ease-out;
+}
+
+@media (max-width: 1024px){
+	#overlay{
+		width: 100vw;
+		height: 100vh;
+		align-items: center;
+		border-radius: 0;
+	}
+
+	#overlay #close{
+		font-size: 64px;
+		font-weight: 200;
+		top: 0;
+		right: 32px;
+	}
+
+	#overlay h3{
+		font-size: 2rem;
+		margin-top: 64px;
+	}
+
+	#overlay p{
+		font-size: 1.33rem;
+		margin-top: 12px;
+	}
+
+	#overlay a{
+		width: 70%;
+		text-align: center;
+		padding-right: 16px;
+		line-height: 2;
+		background-color: white;
+		color: #767AFF;
+		margin-top: 12px;
+	}
+
 }
