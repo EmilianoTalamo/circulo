@@ -77,7 +77,8 @@ function drawCircle() {
 	for(let i=1 ; i<=colorqt ; i++) {
 		ctx.beginPath();
 		ctx.lineWidth = "20"; // Width of the stoke (constant across all strokes)
-		ctx.strokeStyle=colorArr[i-1]; // Color of the current stroke
+		let strokeColor = JSON.parse(localStorage.getItem("colors"))[i-1];
+		ctx.strokeStyle=strokeColor; // Color of the current stroke
 		angle1 = angle2;
 		angle2 = 360/colorqt * i;
 		ctx.arc(200,200,190,(Math.PI/180)*angle1+offset,(Math.PI/180)*angle2+offset,false);
