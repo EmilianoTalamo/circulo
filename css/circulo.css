@@ -204,6 +204,7 @@ label[for='pic']{
 	border-radius: 50%;
 	outline: none;
 	font-size: 10vmin;
+	line-height: 1;
 	color: rgba(0,0,0,0.75);
 	width: 20vmin;
 	height: 20vmin;
