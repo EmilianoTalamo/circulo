@@ -17,6 +17,7 @@ a{
 body{
 	font-family: 'Andika', sans-serif;
 	overflow-x: hidden;
+	touch-action: none;
 }
 body > div{
 	padding: 10vw;
@@ -83,7 +84,6 @@ body > div{
 
 
 /* Header */
-
 header h1{
 	font-family: 'Handlee', cursive;
 	font-size: 9vmin;
@@ -91,12 +91,13 @@ header h1{
 	color: #ee6e73;
 	text-align: center;
 	line-height: 1;
-	margin-bottom: 2rem;
+	margin-bottom: 4rem;
 }
 
 @media only screen and (min-width: 641px){
 	header h1{
 		font-size: 5.2vmin;
+		font-weight: 600;
 	}
 }
 
@@ -211,6 +212,7 @@ label[for='pic']{
 	-moz-user-select: -moz-none;
 	-ms-user-select: none;
 	-webkit-user-select: none;
+	touch-action: manipulation;
 }
 #colorqtdiv > button:active{
 	color: #ee6e73;
