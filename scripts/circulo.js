@@ -95,7 +95,8 @@ function checkLocalStorage() {
 
 // +/- buttons event action
 function plusminusButtons(action) {
-	navigator.vibrate(16);
+	if(navigator.vibrate)
+		navigator.vibrate(16);
 	var colorqtval = document.getElementById("colorqt");
 	switch(action) {
 		case "+": // Plus button
@@ -136,7 +137,9 @@ function showColors() {
 		let currentInput = colors.appendChild(document.createElement("button"));
 		currentInput.style.backgroundColor = JSON.parse(localStorage.getItem("colors"))[i];
 		// Vibrate when tapped on mobile
-		currentInput.onclick = function() { navigator.vibrate(10); }
+		currentInput.onclick = function() { 
+			if(navigator.vibrate)
+				navigator.vibrate(10); }
 		// Create color picker
 		let picker = new CP(currentInput, "click");
 		picker.self.className += " animation-fadein"
