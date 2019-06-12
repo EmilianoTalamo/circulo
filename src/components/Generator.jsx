@@ -17,7 +17,7 @@ export class Generator extends Component {
 
 	componentWillMount() {
 		// Fetch presets JSON
-		fetch("/scripts/presets.json")
+		fetch("/circulo/scripts/presets.json")
 		.then(response => response.json())
 		.then(data => { // Order alphabetically by item name
 			data.sort((a, b) => {
