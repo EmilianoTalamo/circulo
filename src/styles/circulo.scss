@@ -1,0 +1,616 @@
+@import './_config.scss';
+
+// Cursor selection
+*::selection{
+	background-color: map-get($color, alt);
+	color: map-get($color, blankspace);
+}
+
+body{
+	overflow-x: hidden;
+	@include mediaDesktop {
+		overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	}
+}
+
+// app container
+#root{
+	padding: 10vw;
+	@include mediaTablet {
+		padding: 8vw 12vw;
+	}
+	@include mediaDesktop {
+		width: 1000px;
+    padding: 0;
+	}
+}
+
+// Title
+header{
+	margin-bottom: $mSpacing;
+	@include mediaDesktop {
+		margin-bottom: 64px;
+	}
+	h1{
+		font-family: map-get($font, title);
+		font-size: 8.66vmin;
+		font-weight: 600;
+		color: map-get($color, main);
+		text-align: center;
+		line-height: 1;
+		@include mediaTablet {
+			font-size: 3.5rem;
+		}
+		@include mediaDesktop {
+			font-size: 38px;
+			text-align: left;
+		}
+	}
+}
+
+// App
+main{
+	overflow-x: hidden;
+	@include mediaDesktop {
+		overflow-x: auto;
+		display: flex;
+		margin: auto;
+	}
+}
+
+// Settings
+aside{
+	@include mediaDesktop {
+		width: 600px;
+	}
+	&> div{
+		margin-bottom: ($mSpacing / 2); // Separation between each setting
+		@include mediaTablet {
+			margin-bottom: $tSpacing / 2;
+		}
+		@include mediaDesktop {
+			margin-bottom: $dSpacing;
+		}
+	}
+
+	// Upload photo section
+	#settingUpload{
+		// Button
+		label{ background-color: map-get($color, accent); }
+		#uploadButton{display: none; } // Hide default browser button	
+	}
+
+	// Color picker section
+	#settingColors{
+		@include mediaDesktop {
+			position: relative;
+		}
+		// Buttons that change the quantity
+		#colorqtButtons{
+			display: flex;
+			justify-content: space-evenly;
+			margin-bottom: .33rem;
+			@include mediaDesktop {
+				justify-content: flex-start;
+			}
+			button{
+				color: map-get($color, blacktext);
+				font-size: 10vmin;
+				line-height: 1;
+				width: 20vmin;
+				height: 20vmin;
+				background: none;
+				border: none;
+				border-radius: 50%;
+				outline: none;
+				user-select: none;
+				touch-action: manipulation;
+				transition: color 50ms ease-out, background-color 50ms ease-out;
+				&:active{ // Pressing animation/effect
+					color: map-get($color, main);
+					background-color: rgba(0,0,0,.02);
+				}
+				@include mediaTablet {
+					font-size: 6vmin;
+					width: 12vmin;
+					height: 12vmin;
+				}
+				@include mediaDesktop {
+					font-size: 32px;
+					width: 48px;
+					height: 48px;
+					&:hover{
+						cursor: pointer;
+						color: map-get($map: $color, $key: accent);
+					}
+				}
+			}
+		}
+		// Color pickers
+		#colorPickers{
+			height: 26vmin;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-evenly;
+			align-items: center;
+			@include mediaTablet {
+				height: 20vmin;
+			}
+			@include mediaDesktop {
+				height: initial;
+				flex-wrap: nowrap;
+				justify-content: flex-start;
+			}
+			.pickerSelector{
+				height: 12vmin;
+				margin: 0 .1rem .5rem 0;
+				border: 1px solid rgba(0,0,0,.2);
+				@include mediaTablet {
+					height: 8vmin;
+				}
+				@include mediaDesktop {
+					height: 32px;
+					width: 32px;
+					margin-right: 4px;
+					box-sizing: border-box;
+					&:hover{
+						cursor: pointer;
+						border: 1px solid white;
+						box-shadow: 0 0 1px rgba(0,0,0,.5);
+					}
+				}
+			}
+			
+		}
+		#picker{
+			@include fullscreen;
+			top: 0 !important;
+			left: 0 !important;
+			background-color: rgba(255,255,255, 0.95);
+			backdrop-filter: blur(5px);
+			touch-action: none;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			z-index: 10;
+			@include mediaDesktop {
+				backdrop-filter: none;
+				background-color: transparent;
+				background-color: rgba(255,255,255, 0.95);
+			}
+			.pcr-app{ // Picker itself
+				margin-bottom: 25vh; // Vertical position
+				max-width: 98vw;
+				width: 18rem;
+				outline: none;
+				user-select: none;
+				@include mediaMobileLandscape {
+					margin-bottom: 0;
+				}
+				@include mediaTablet {
+					margin-bottom: 38vh;
+					width: 75vw;
+				}
+				@include mediaDesktop {
+					margin-left: -512px;
+					margin-top: 64px;
+					margin-bottom: 0;
+					max-width: initial;
+					width: 420px;
+				}
+				.pcr-color-palette{ // color selector
+					height: 30vh;
+					@include mediaTablet {
+						height: 32vh;
+					}
+					@include mediaDesktop {
+						height: 250px;
+					}
+				}
+				.pcr-slider{ // Hue Slider
+					width: 32px;
+					@include mediaTablet {
+						width: 48px;
+					}
+					@include mediaDesktop {
+						width: 32px;
+					}
+				}
+				.pcr-swatches{
+					display: flex;
+					width: 100%;
+					flex-wrap: nowrap;
+					button{
+						width: 100%;
+						flex: 1;
+						height: 2.5rem;
+						margin: .5px;
+						border-radius: 0;
+						@include mediaTablet {
+							height: 3rem;
+						}
+						@include mediaDesktop {
+							height: 16px;
+						}
+						&:before, &:after{
+							border-radius: 0;
+							border: none;
+						}
+					}
+				}
+				.pcr-interaction{
+					display: flex;
+					font-family: map-get($font, text);
+					font-size: 1.2rem;
+					.pcr-result{ // Hex value
+						flex: 1;
+					}
+					.pcr-save{ // Save button
+						@extend .btn;
+						background-color: map-get($color, accent);
+						flex: 1;
+						line-height: 1.5;
+					}
+				}		
+			}
+		}
+	}
+
+	// Presets selector
+	#settingPresets{
+		p{
+			color: map-get($color, accent);
+			font-size: .85rem;
+			font-weight: 500;
+			line-height: 1.2;
+			margin-bottom: $mSpacing / 4;
+			@include mediaTablet {
+				font-size: 1.1rem;
+				font-weight: 400;
+				margin-bottom: $mSpacing / 8;
+			}
+			@include mediaDesktop {
+				font-size: 14px;
+				margin-bottom: $dSpacing / 2;
+				font-weight: 400;
+				width: 420px;
+			}
+			& > svg{ // Icon
+				margin-left: 0;
+				margin-right: 4px;
+				@include mediaTablet {
+					margin-right: 6px;
+				}
+			}
+		}
+		#presetsInput{
+			width: 100%;
+			font-size: $mTextSize;
+			color: map-get($color, blacktext);
+			background-color: map-get($color, blankspace);
+			border-radius: 8px;
+			border: 1px solid rgba(0,0,0,.2);
+			padding: .66rem 2rem .66rem 1rem;
+			appearance: none;
+			outline: none;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			background-image: url('../assets/chevron.svg');
+			background-repeat: no-repeat;
+			background-position: 97% center;
+			@include mediaTablet {
+				font-size: $tTextSize;
+			}
+			@include mediaDesktop {
+				width: 320px;
+				font-size: 16px;
+				font-weight: 400;
+				padding: 6px 48px 6px 8px;
+				&:hover{
+					cursor: pointer;
+					border: 1px solid map-get($map: $color, $key: blacktext);
+				}
+				option{
+					font-family: sans-serif;
+				}
+			}
+		}
+	}
+
+	// Download button
+	#settingDownload{
+		margin-bottom: 24vmin;
+		@include mediaDesktop {
+			margin-top: 32px;
+			margin-bottom: 0;
+		}
+		button{
+			background-color: map-get($color, main);
+			font-size: 6vmin;
+			@include mediaTablet {
+				font-size: $tTitleSize;
+			}
+			@include mediaDesktop {
+				font-size: $dTextSize;
+			}
+		}
+	}
+}
+
+// Preview
+figure{
+	position: fixed;
+	bottom: 12px;
+	right: 6vw;
+	box-sizing: border-box;
+	background-color: #fcfcfc;
+	border: 1px solid #eee;
+	border-radius: 2px;
+	transition: right 200ms ease-out;
+	animation: scrollFromBottom 800ms normal forwards ease-out;
+	animation-delay: 2s;
+	animation-fill-mode: backwards;
+	line-height: 1;
+	z-index: 15;
+	@include mediaDesktop {
+		flex-basis: 400px;
+		display: flex;
+		align-items: center;
+		position: initial;
+		background-color: white;
+		height: 400px;
+		animation: none;
+	}
+	#preview{
+		background-color: white;
+		border-radius: 50%;
+		width: 42vw;
+		height: 42vw;
+		display: inline-block;
+		margin: 0;
+		padding: 4px;
+		z-index: 15;
+		user-select: none;
+		pointer-events: none;
+		
+		@include mediaMobileLandscape {
+			right: 1vw;
+			bottom: 2vh;
+			width: 25vw;
+			height: 25vw;
+		}
+		@include mediaTablet {
+			right: 6vw;
+			bottom: 16px;
+			width: 35vmin;
+			height: 35vmin;
+		}
+		@include mediaDesktop {
+			width: 400px;
+			height: 400px;
+		}
+	}
+}
+
+// Signature
+#about{
+	font-family: map-get($font, signature);
+	color: #333;
+	font-size: 12vmin;
+	@include mediaTablet {
+		font-size: 4rem;
+	}
+	@include mediaDesktop {
+		position: fixed;
+    bottom: 32px;
+    right: 64px;
+    font-size: 48px;
+		padding: 8px;
+		&:hover{
+			color: #673AB7;
+		}
+	}
+}
+
+// Download popup
+#overlay-bg{
+	@include fullscreen;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 99;
+	@include mediaDesktop {
+		background-color: rgba(255, 255, 255, .4);
+	}
+	#overlay-content{
+		@include fullscreen;
+		background-color: map-get($color, accent);
+		color: white;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		@include mediaDesktop {
+			width: 720px;
+			height: 550px;
+			position: relative;
+			padding: 16px;
+			border-radius: 4px;
+			box-shadow: 0 0 32px rgba(0,0,0,.2);
+		}
+		.close{
+			position: fixed;
+			font-size: 58px;
+			font-weight: 200;
+			top: 1vh;
+			right: 4vw;
+			line-height: 1;
+			opacity: .9;
+			@include mediaTablet {
+				font-size: 6rem;
+			}
+			@include mediaDesktop {
+				color: map-get($color, blacktext);
+			}
+			&:hover{
+				cursor: pointer;
+			}
+		}
+		h3{ // Title
+			font-size: 1.4rem;
+			line-height: 1.5;
+			padding: 0 10vw;
+			margin-bottom: 4vh;
+			@include mediaMobileLandscape {
+				font-size: 1.2rem;
+			}
+			@include mediaTablet {
+				font-size: 2rem;
+			}
+			@include mediaDesktop {
+				font-size: 24px;
+				padding: 0;
+				margin-bottom: 16px;
+			}
+		}
+		img{
+			width: 22vh;
+			border-radius: 50%;
+			box-shadow: 3px 3px 10px rgba(0,0,0,.2);
+			margin-bottom: 4vh;
+			@include mediaTablet {
+				width: 30vh;
+			}
+			@include mediaDesktop {
+				width: 200px;
+				height: 200px;
+				margin-bottom: 32px;
+			}
+		}
+		.iOS-msg{
+			font-size: 1rem;
+			line-height: 1.2;
+			margin-bottom: 1vh;
+			font-weight: 800;
+			@include mediaTablet {
+				font-size: 1.2rem;
+				margin-bottom: 5vh;
+			}
+		}
+		p{
+			font-size: 1.2rem;
+			margin-bottom: 3vh;
+			padding: 0 10vw;
+			line-height: 1.1;
+			@include mediaMobileLandscape {
+				font-size: 1rem;
+			}
+			@include mediaTablet {
+				font-size: 1.5rem;
+				margin-bottom: 3vh;
+			}
+			@include mediaDesktop {
+				padding: 0;
+				font-size: 18px;
+				margin-bottom: 18px;
+			}
+		}
+		.shareButtons{
+			margin-bottom: 3vh;
+			display: flex;
+			@include mediaTablet {
+				margin-bottom: 3vh;
+			}
+			@include mediaDesktop {
+				margin-bottom: 32px;
+			}
+		}
+		a{
+			svg{
+				margin: 0 1rem;
+			}
+			width: 64px;
+			font-size: 1.33rem;
+			line-height: 2.2;
+			color: map-get($map: $color, $key: accent);
+			background-color: white;
+			margin: 0 12px;
+			display: flex;
+			justify-content: center;
+			@include mediaMobileLandscape {
+				font-size: 1rem;
+			}
+			@include mediaTablet {
+				width: 96px;
+				font-size: 1.66rem;
+			}
+			@include mediaDesktop {
+				font-size: 20px;
+				line-height: 1;
+				width: 64px;
+				&:hover{
+					transform: scale(1.1);
+				}
+			}
+		}
+		hr{
+			width: 60%;
+			opacity: .2;
+			border: .5px solid white;
+			margin-bottom: 2vh;
+			@include mediaDesktop {
+				display: none;
+			}
+		}
+		.donationText{
+			font-family: sans-serif;
+			font-size: 1rem;
+			margin-bottom: 2vh;
+			@include mediaTablet {
+				font-size: 1.2rem;
+			}
+			@include mediaDesktop {
+				font-size: 14px;
+				margin-bottom: 16px;
+			}
+		}
+		.donationButtons{
+			display: flex;
+			justify-content: space-between;
+			a{
+				font-size: 1rem;
+				line-height: 2.66;
+				font-weight: 600;
+				font-family: sans-serif;
+				margin: 5px;
+				width: 40vw;
+				color: white;
+				animation-name: pulse;
+				animation-duration: 3000ms;
+				animation-timing-function: ease-in-out;
+				animation-iteration-count: infinite;
+				@include mediaTablet {
+					font-size: 1.33rem;
+				}
+				@include mediaDesktop {
+					font-size: 16px;
+					line-height: 1.2;
+					width: 200px;
+					margin: 0 12px;
+				}
+				&.paypal{
+					background-color: #022069;
+				}
+				&.mercadopago{
+					background-color: #009EE3;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,62 @@
+[
+	{
+		"name" : "Aborto Legal (ARG)",
+		"qt" : 1,
+		"colors" : ["#1BC203"]
+	},
+	{
+		"name" : "Estado Independiente de la Iglesia",
+		"qt" : 1,
+		"colors" : ["#FF9E34"]
+	},
+	{
+		"name" : "Aborto Legal y Estado Laico",
+		"qt" : 2,
+		"colors" : ["#FF9E34", "#1BC203"]
+	},
+	{
+		"name" : "Orgullo LGBT",
+		"qt" : 6,
+		"colors" : ["#E40303", "#FF8C00", "#FFED00", "#008026", "#004DFF", "#750787"]
+	},
+	{
+		"name" : "Orgullo Bisexual",
+		"qt" : 3,
+		"colors" : ["#FE4493", "#B43FEB", "#3A5DB8"]
+	},
+	{
+		"name" : "Orgullo Trans",
+		"qt" : 6,
+		"colors" : ["#5acef9", "#ffffff", "#f4a8b7", "#f4a8b7", "#ffffff", "#5acef9"]
+	},
+	{
+		"name" : "Orgullo Lésbico",
+		"qt" : 7,
+		"colors" : ["#A30161", "#B75591", "#CF65A4", "#EEEEEE", "#E3ADCF", "#C54D56", "#8A1F03"]
+	},
+	{
+		"name" : "Orgullo Asexual",
+		"qt" : 4,
+		"colors" : ["#000000", "#A2A2A2", "#FFFFFF", "#7E007E"]
+	},
+	{
+		"name" : "Orgullo Pansexual",
+		"qt" : 3,
+		"colors" : ["#FF218C", "#FFD800", "#21B1FF"]
+	},
+	{
+		"name" : "Orgullo No-Binario",
+		"qt" : 4,
+		"colors" : ["#FFF430", "#FFFFFF", "#9C58D1", "#292929"]
+	},
+	{
+		"name" : "Orgullo Genderqueer",
+		"qt" : 3,
+		"colors" : ["#B77FDD", "#FFFFFF", "#48821E"]
+	},
+	{
+		"name" : "Orgullo Genderfluid",
+		"qt" : 5,
+		"colors" : ["#FD74A0", "#FFFFFF", "#BD18D4", "#000000", "#333EBC"]
+	}
+]

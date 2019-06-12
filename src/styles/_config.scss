@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css?family=Andika|Handlee|Rancho&display=swap');
+
+@mixin mediaTablet {
+	@media (min-width: 768px) and (orientation: portrait) {
+		@content;
+	}
+	@media (min-width: 1024px) and (orientation: landscape) {
+		@content;
+	}
+}
+
+@mixin mediaDesktop {
+	@media (min-width: 1280px) and (orientation: landscape) {
+		@content;
+	}
+}
+
+@mixin mediaDesktopHD {
+	@media (min-width: 1900px) and (orientation: landscape) {
+		@content;
+	}
+}
+
+@mixin mediaMobileLandscape {
+	@media (min-width: 560px) and (orientation: landscape) {
+		@content;
+	}
+}
+
+$font: (
+	title: (Handlee, Georgia, serif),
+	text: (Andika, "Trebuchet MS", Helvetica, sans-serif),
+	signature: (Rancho, cursive)
+);
+
+$color: (
+	main: #ee6e73,
+	alt: #fbc2eb,
+	accent: #767AFF,
+	blacktext: rgba(0,0,0,0.75),
+	blankspace: white		/* So it's gonna be forever
+												Or it's gonna go down in flames
+												You can tell me when it's over
+												If the high was worth the pain
+												Got a long list of ex-lovers
+												They'll tell you I'm insane
+												'Cause you know I love the players
+												And you love the game */
+);
+
+$mSpacing: 4rem;
+$tSpacing: 8rem;
+$dSpacing: 24px;
+
+$mTitleSize: 1.66rem;
+$tTitleSize: 2rem;
+$dTitleSize: 24px;
+
+$mTextSize: 1rem;
+$tTextSize: 1.33rem;
+$dTextSize: 18px;
+
+@mixin fullscreen{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+}
+
+*{padding: 0; margin: 0; font-family: inherit; list-style: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+*, *::before, *::after{ box-sizing: inherit; }
+
+html{ box-sizing: border-box; }
+body{ font-family: map-get($font, text); }
+html, body{ overflow-y: none; }
+
+a{
+	text-decoration: none;
+	color: inherit;
+	&:hover{ text-decoration: none; }
+}
+button:hover{ cursor: pointer; }
+
+html.modalShown{
+	overflow-y: hidden;
+
+	&:first-child{
+		overflow-y: hidden;
+		position: relative;
+	}
+}
+
+.subtitle {
+	font-family: map-get($font, text);
+	font-size: $mTitleSize;
+	font-weight: 600;
+	color: map-get($color, blacktext);
+	margin-bottom: ($mSpacing / 4);
+	line-height: 1;
+	@include mediaTablet {
+		font-size: $tTitleSize;
+		margin-bottom: $tSpacing / 6;
+	}
+	@include mediaDesktop {
+		font-size: $dTitleSize;
+		margin-bottom: $dSpacing / 2;
+	}
+}
+
+.btn{
+	display: block;
+	width: 100%;
+	color: map-get($color, blankspace);
+	font-size: 1.2rem;
+	font-weight: 400;
+	text-align: center;
+	line-height: 2.5;
+	border: none;
+	border-radius: 4px;
+	transition: transform 100ms linear;
+	&:active{
+		transform: scale(.95);
+	}
+	@include mediaTablet {
+		font-size: 1.5rem;
+	}
+	@include mediaDesktop {
+		display: inline-block;
+		font-size: 18px;
+		font-weight: 600;
+		line-height: 1;
+		padding: 12px 20px;
+		width: initial;
+		&:hover{
+			cursor: pointer;
+			filter: brightness(1.1);
+		}
+		&:active{
+			transform: scale(.98);
+		}
+	}
+}
+
+// Font awesome icon spacing
+svg[data-prefix=fas], svg[data-prefix=far], svg[data-prefix=fab]{
+	margin-right: 8px;
+	margin-left: -4px;
+}
+
+// Animations
+.fadeUp-{
+	&appear, &enter{
+	opacity: 0.01;
+	transform: translateY(10vh);
+	&.fadeUp-appear-active, &.fadeUp-enter-active{
+		opacity: 1;
+		transform: translateY(0);
+		transition: opacity 200ms ease-in, transform 200ms ease-out;
+		}
+	}
+	&exit{
+	opacity: 1;
+	&.fadeUp-exit-active{
+		opacity: 0;
+		transition: opacity 160ms ease-in;
+		}
+	}
+}
+
+.pickerSelectorAnim-{
+	&appear, &enter{
+	opacity: 0.01;
+	width: 14%;
+	&.pickerSelectorAnim-appear-active, &.pickerSelectorAnim-enter-active{
+		opacity: 1;
+		width: 20%;
+		transition: opacity 200ms ease-out 66ms, width 66ms ease-in;
+		}
+	&-done{
+		width: 20%;
+	}
+	}
+	&exit{
+	opacity: 1;
+	width: 20%;
+	&.pickerSelectorAnim-exit-active{
+		opacity: 0.01;
+		width: 14%;
+		transition: opacity 66ms ease-in, width 66ms linear 100ms;
+		}
+	}
+}
+
+
+@keyframes pulse{
+	0%{
+		box-shadow: 0 0 2px rgba(255, 214, 0, .6);
+	}
+	50%{
+		box-shadow: 0 0 4px rgba(255, 214, 0, 1);
+	}
+	100%{
+		box-shadow: 0 0 2px rgba(255, 214, 0, .6);
+	}
+}
+
+@keyframes scrollFromBottom{
+	from{
+		opacity: 0;
+		bottom: -40vmin;
+	}
+	80%{
+		bottom: 24px;
+	}
+	to{
+		opacity: 1;
+		bottom: 16px;
+	}
+}
