@@ -1,5 +1,5 @@
 {
-  "main.css": "/circulo/static/css/main.48032168.chunk.css",
+  "main.css": "/circulo/static/css/main.ec85050c.chunk.css",
   "main.js": "/circulo/static/js/main.78507d85.chunk.js",
   "main.js.map": "/circulo/static/js/main.78507d85.chunk.js.map",
   "runtime~main.js": "/circulo/static/js/runtime~main.d52d9078.js",
@@ -8,9 +8,9 @@
   "static/js/2.1393fc35.chunk.js": "/circulo/static/js/2.1393fc35.chunk.js",
   "static/js/2.1393fc35.chunk.js.map": "/circulo/static/js/2.1393fc35.chunk.js.map",
   "index.html": "/circulo/index.html",
-  "precache-manifest.72775941a6a9f9e0e9530d90f8e0097b.js": "/circulo/precache-manifest.72775941a6a9f9e0e9530d90f8e0097b.js",
+  "precache-manifest.1621601fdf269b5dad6e7416f3950de2.js": "/circulo/precache-manifest.1621601fdf269b5dad6e7416f3950de2.js",
   "service-worker.js": "/circulo/service-worker.js",
   "static/css/2.f4353284.chunk.css.map": "/circulo/static/css/2.f4353284.chunk.css.map",
-  "static/css/main.48032168.chunk.css.map": "/circulo/static/css/main.48032168.chunk.css.map",
+  "static/css/main.ec85050c.chunk.css.map": "/circulo/static/css/main.ec85050c.chunk.css.map",
   "static/media/circulo.scss": "/circulo/static/media/chevron.c11947b9.svg"
 }

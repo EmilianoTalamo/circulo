@@ -1,10 +1,10 @@
 self.__precacheManifest = [
   {
-    "revision": "8a27e4cf65afe1a2928b",
-    "url": "/circulo/static/css/main.48032168.chunk.css"
+    "revision": "731d517b971c763b4872",
+    "url": "/circulo/static/css/main.ec85050c.chunk.css"
   },
   {
-    "revision": "8a27e4cf65afe1a2928b",
+    "revision": "731d517b971c763b4872",
     "url": "/circulo/static/js/main.78507d85.chunk.js"
   },
   {
@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/circulo/static/media/chevron.c11947b9.svg"
   },
   {
-    "revision": "bf0f76c682c1bd5a44144b930e389626",
+    "revision": "c4d91420325e9fa3aa94767e5d6d35fc",
     "url": "/circulo/index.html"
   }
 ];

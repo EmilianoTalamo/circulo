@@ -535,6 +535,8 @@ figure{
 			svg{
 				margin: 0 1rem;
 			}
+			box-sizing: content-box;
+			padding: 12px 0;
 			width: 64px;
 			font-size: 1.33rem;
 			line-height: 2.2;
@@ -545,6 +547,7 @@ figure{
 			justify-content: center;
 			@include mediaMobileLandscape {
 				font-size: 1rem;
+				padding: 6px 0;
 			}
 			@include mediaTablet {
 				width: 96px;
@@ -554,6 +557,7 @@ figure{
 				font-size: 20px;
 				line-height: 1;
 				width: 64px;
+				padding: 12px 0;
 				&:hover{
 					transform: scale(1.1);
 				}
@@ -595,6 +599,7 @@ figure{
 				animation-duration: 3000ms;
 				animation-timing-function: ease-in-out;
 				animation-iteration-count: infinite;
+				padding: 0;
 				@include mediaTablet {
 					font-size: 1.33rem;
 				}
@@ -603,6 +608,7 @@ figure{
 					line-height: 1.2;
 					width: 200px;
 					margin: 0 12px;
+					padding: 12px 0;
 				}
 				&.paypal{
 					background-color: #022069;
