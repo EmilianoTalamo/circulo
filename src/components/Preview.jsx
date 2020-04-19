@@ -42,7 +42,7 @@ export class Preview extends Component {
 		ctx.globalCompositeOperation = "source-over";
 
 		// This sets the starting drawing point on the top center angle of the circle
-		var offset = 300;
+		var offset = 1.5708; // What I mean is, it rotates the circle 90 degrees (1.5708 rads = ~90deg, or half PI = 90deg)
 
 		// Initial position of the angles
 		var angle1 = 0,
@@ -57,12 +57,12 @@ export class Preview extends Component {
 			angle1 = angle2;
 			angle2 = (360 / this.props.colorqt) * i;
 			ctx.arc(
-				200,
-				200,
-				190,
-				(Math.PI / 180) * angle1 + offset,
-				(Math.PI / 180) * angle2 + offset,
-				false
+				200, // x-coordinate of the center (canvas-half)
+				200, // y-coordinate of the center (canvas-half)
+				190, // Radius of the circle
+				(Math.PI / 180) * angle1 + offset, // Starting angle
+				(Math.PI / 180) * angle2 + offset, // Ending angle
+				false // Clockwise
 			);
 			ctx.stroke();
 		}
