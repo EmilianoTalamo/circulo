@@ -27,7 +27,7 @@ export class Generator extends Component {
 			});
 			this.setState({presets: data})
 		})
-		.catch(error => console.error("Pasó algo malo al cargar los preseteados, no los vas a poder usar :/", error))
+		.catch(error => console.error("Pasó algo malo al cargar los preseteados, no los vas a poder usar 😢 --", error))
 	}
 
 	// Random color generator (hex)
