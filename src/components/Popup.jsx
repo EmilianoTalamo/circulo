@@ -23,32 +23,28 @@ export class Popup extends Component {
 					<span className="close" onClick={this.props.onClose}>
 						×
 					</span>
-					<h3>Se {this.isiOS() && "generó" || "está descargando"} tu nueva foto de perfil 😘</h3>
+					<h3>Se {this.isiOS() ? "generó" : "está descargando"} tu nueva foto de perfil 😘</h3>
 					<img
 						src={this.props.previewimg}
 						alt="Tu imagen generada"
 						id="dlimg"
 					/>
-					{this.isiOS() && <p className="iOS-msg">☝ Mantené apretada la imagen y elegí "Guardar imagen" ☝</p>}
+					{this.isiOS() && <p className="iOS-msg"><span role="img" aria-label="Mano apuntando hacia arriba">☝</span> Mantené apretada la imagen y elegí "Guardar imagen" <span role="img" aria-label="Mano apuntando hacia arriba">☝</span></p>}
 					<p className="shareText">Quedó hermoso, compartí el amor en las redes sociales</p>
 					<div className="shareButtons">
 						<a className="btn"
 							href={"http://twitter.com/home?status=" + twMsg}
 							target="_blank"
+							rel="noopener noreferrer"
 						> <FontAwesomeIcon icon={['fab', 'twitter']} />
 							
 						</a>
 						<a className="btn"
 							href={"https://www.facebook.com/sharer/sharer.php?u=" + fbMsg}
 							target="_blank"
+							rel="noopener noreferrer"
 						> <FontAwesomeIcon icon={['fab', 'facebook-f']} />
 						</a>
-					</div>
-					<hr />
-					<p className="donationText">Esta app es totalmente gratis y libre de publicidad, pero me pondría muy feliz que consideres donar 👇</p>
-					<div className="donationButtons">
-					<a className="btn paypal" href="https://paypal.me/emilianotalamo" target="_blank">PayPal</a>
-					<a href="https://www.mercadopago.com/mla/checkout/start?pref_id=187303563-81461516-65d0-4293-86ff-b837c6ab604b" className="btn mercadopago" target="_blank">MercadoPago</a>
 					</div>
 					
 				</div>
